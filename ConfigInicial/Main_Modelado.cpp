@@ -198,12 +198,37 @@ int main() {
 		glBindVertexArray(VAO);
 	
 	    model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.0f, 0.1f, 2.0f));//Ancho, Grosor, Profundidad
+		model = glm::translate(model, glm::vec3(0.0f, 0.6f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));//Tamaño de la pata 
+		model = glm::translate(model, glm::vec3(2.9f, -0.6f, 1.9f));//Posicion de la pata
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//Pata 2
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));//Tamaño de la pata 
+		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, 1.9f));//Posicion de la pata
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pata 3
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));//Tamaño de la pata 
+		model = glm::translate(model, glm::vec3(-2.9f, -0.6f, -1.9f));//Posicion de la pata
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		//pata4
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(0.1f, 0.6f, 0.1f));//Tamaño de la pata 
+		model = glm::translate(model, glm::vec3(2.9f, -0.6f, -1.9f));//Posicion de la pata
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		glBindVertexArray(0);
-
-				
-
 		// Swap the screen buffers
 		glfwSwapBuffers(window);
 	
